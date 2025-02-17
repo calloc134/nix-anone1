@@ -67,16 +67,23 @@
     extraGroups = [ "wheel" "networkmanager" ];
     initialPassword = "nixos";
   };
+  
 
   # System packages
   environment.systemPackages = with pkgs; [
     firefox-esr
-    # veracrypt
+    veracrypt
     git
     wget
     vim
     # torsocks
+    proxychains-ng
   ];
+
+    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
+        "veracrypt"
+    ];
+
 
   
   # Enable transparent proxy through Tor

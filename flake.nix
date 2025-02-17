@@ -12,7 +12,7 @@
         ./configuration.nix
         "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
         ({ config, pkgs, ... }: {
-          system.stateVersion = "23.11";
+          system.stateVersion = "24.11";
           
           isoImage = {
             edition = "minimal";
